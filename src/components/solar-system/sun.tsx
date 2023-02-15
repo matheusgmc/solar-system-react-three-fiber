@@ -19,7 +19,7 @@ export function Sun({ radius }: SunProps) {
 
   return (
     <mesh ref={ref}>
-      <sphereGeometry args={[radius, 10, 10]} />
+      <sphereGeometry args={[radius, 30, 30]} />
       <meshBasicMaterial map={data} />
     </mesh>
   );
