@@ -1,10 +1,27 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Planet } from "./planet";
-//import { Stars } from "./stars";
 import { Sun } from "./sun";
 
-//<Sun />
+const planets = [
+  {
+    name: "mercury",
+    velocity: 2.5,
+  },
+  {
+    name: "venus",
+    velocity: 1.5,
+  },
+  {
+    name: "earth",
+    velocity: 1,
+  },
+  {
+    name: "mars",
+    velocity: 0.9,
+  },
+];
+
 export function SolarSystem() {
   return (
     <Canvas
@@ -15,10 +32,15 @@ export function SolarSystem() {
     >
       <ambientLight position={[1, 1, 1]} />
       <Sun radius={5} />
-      <Planet distance={8} velocity={1} size={2} />
-      <Planet distance={6} velocity={1} size={2} />
-      <Planet distance={10} velocity={1} size={2} />
-      <Planet distance={12} velocity={1} size={2} />
+      {planets.map((value, index) => (
+        <Planet
+          key={`${value.name}-${index}`}
+          distance={6 + 3 * index}
+          velocity={value.velocity}
+          texture_name={value.name}
+          size={2}
+        />
+      ))}
       <OrbitControls />
       <gridHelper scale={[10, 0, 10]} />
     </Canvas>
