@@ -8,7 +8,7 @@ export interface OrbitProps extends MeshProps {
 export function Orbit({ orbit, ...props }: OrbitProps) {
   return (
     <mesh {...props}>
-      <ringGeometry args={[orbit - 0.5, orbit, 30]} />
+      <ringGeometry args={[orbit - 0.5, orbit, 90]} />
       <meshBasicMaterial
         color="white"
         opacity={0.09}
