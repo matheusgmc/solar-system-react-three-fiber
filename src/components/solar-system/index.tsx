@@ -20,6 +20,11 @@ const planets = [
     name: "mars",
     velocity: 0.9,
   },
+  {
+    name: "jupiter",
+    velocity: 0.7,
+    ring: true,
+  },
 ];
 
 export function SolarSystem() {
@@ -32,12 +37,13 @@ export function SolarSystem() {
     >
       <ambientLight position={[1, 1, 1]} />
       <Sun radius={5} />
-      {planets.map((value, index) => (
+      {planets.map((planet, index) => (
         <Planet
-          key={`${value.name}-${index}`}
+          key={`${planet.name}-${index}`}
           distance={6 + 3 * index}
-          velocity={value.velocity}
-          texture_name={value.name}
+          velocity={planet.velocity}
+          texture_name={planet.name}
+          ring={planet.ring}
           size={2}
         />
       ))}
