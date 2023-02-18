@@ -8,8 +8,13 @@ export interface RingProps extends MeshProps {
 export function Ring({ distance: size = 1, depth, ...props }: RingProps) {
   return (
     <mesh {...props}>
-      <ringGeometry args={[size - depth, size]} />
-      <meshBasicMaterial color={"red"} side={THREE.DoubleSide} />
+      <ringGeometry args={[size - depth, size, 30]} />
+      <meshBasicMaterial
+        color={"white"}
+        side={THREE.DoubleSide}
+        transparent={true}
+        opacity={0.2}
+      />
     </mesh>
   );
 }
