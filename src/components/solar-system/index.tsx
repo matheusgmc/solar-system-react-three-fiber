@@ -23,7 +23,15 @@ const planets = [
   {
     name: "jupiter",
     velocity: 0.7,
+    multiply_size: 2,
+    multiply_orbit: 1,
+  },
+  {
+    name: "saturn",
+    velocity: 0.6,
     ring: true,
+    multiply_size: 2,
+    multiply_orbit: 1,
   },
 ];
 
@@ -40,11 +48,12 @@ export function SolarSystem() {
       {planets.map((planet, index) => (
         <Planet
           key={`${planet.name}-${index}`}
-          distance={6 + 3 * index}
+          position={index + 1}
+          multiply_orbit={planet.multiply_orbit}
           velocity={planet.velocity}
           texture_name={planet.name}
           ring={planet.ring}
-          size={2}
+          size={planet.multiply_size ? planet.multiply_size * 2 : 2}
         />
       ))}
       <OrbitControls />
